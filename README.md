@@ -1,4 +1,4 @@
-# -GettingAndCleaningData
+# GettingAndCleaningData
 This repository contains the files needed and requested as part of the Peer-graded Assignment: Getting and Cleaning Data Course Project, where the main goal is to prepare tidy data that can be used for later analysis.
 In this repo you can find the following files:
     1. The requested data set is tidy: tidyData.csv
