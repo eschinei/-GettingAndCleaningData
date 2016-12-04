@@ -12,7 +12,7 @@ acceleration and gravity. The gravitational force is assumed to have only low fr
 filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating 
 variables from the time and frequency domain. 
 
-For each record it is provided:
+##For each record it is provided:
 ======================================
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -20,7 +20,8 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-DATA DICTIONARY
+#DATA DICTIONARY
+======================================
 
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
@@ -40,13 +41,14 @@ fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to
 
 For each record in the dataset it is provided:
 
-    Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-    Triaxial Angular velocity from the gyroscope.
-    A 561-feature vector with time and frequency domain variables.
-    Its activity label.
-    An identifier of the subject who carried out the experiment.
+   - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+   - Triaxial Angular velocity from the gyroscope.
+   - A 561-feature vector with time and frequency domain variables.
+   - Its activity label.
+   - An identifier of the subject who carried out the experiment.
 
 The set of variables that were estimated from these signals are: 
 
-mean(): Mean value
-std(): Standard deviation
+    - mean(): Mean value
+    - std(): Standard deviation
+    - meanFreq(): Weighted average of the frequency components to obtain a mean frequency
