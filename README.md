@@ -9,9 +9,9 @@ In this repo you can find the following files:
     4. README that explains the analysis files
     
 The code used to process the data and produce the final tidy set is shown and explained below.
-First, the data is extracted fromt he different files.
+First, the data is extracted from the different files.
 
-Activit labels and features, which will be later used to rename variables:
+Activity labels and features, which will be later used to rename variables:
 
           runAnalysis <- function(){
                   ## Read activities and features information from files
