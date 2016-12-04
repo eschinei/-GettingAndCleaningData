@@ -45,37 +45,37 @@ Another set with the Training data is created, including 'subjects' and 'activit
 Training and Test sets are merged, as requested:
 
                   ## Merges TEST & TRAINING sets to create one data set
-                  XY=rbind(XY_test,XY_train)
+                  dataSet=rbind(XY_test,XY_train)
 
 Once the data set is created, variables names are changed to more descriptive labels. For measurements, the variables provided by the documentation are used:
 
                   ## Update Variables Names (Columns) to more descriptive 
-                  names(XY)=c("subject", "activity_label",as.character(features$V2))
+                  names(dataSet)=c("subject", "activity_label",as.character(features$V2))
 
 A function with a loop to substitute the initial activity labels (numbers from 1 to 6) for their real names (Walking, Laying, etc.) is created:
 
-                  ## Function that will label Activities from numbers "1:6" to their more descriptive names
-                  gsub2 <- function(pattern, replacement, x) {
-                          for(i in 1:length(pattern)) x <- gsub(pattern[i], replacement[i], x)
-                          x
-                  }
-
-                  ## Call function 'gsub2' to change Activities' names
-                  XY$activity_label= gsub2(1:6, activity_labels$V2, XY$activity_label)
+                ## Function that will label Activities from numbers "1:6" to their more descriptive names
+                gsub2 <- function(pattern, replacement, x) {
+                for(i in 1:length(pattern)) x <- gsub(pattern[i], replacement[i], x)
+                    x
+                }
+        
+                ## Call function 'gsub2' to change Activities' names
+                dataSet$activity_label= gsub2(1:6, activity_labels$V2, dataSet$activity_label)
 
 Measurements on the mean and standard deviation are extracted for each measurement 'grepl':
 
-                  ## Extract all 'mean' and 'std' measurements, along with 'Subjects' and 'Activities'
-                  ## 'FreqMean' is considered as 'mean' measurement
-                  XY_Ext=XY[,grepl("subject|activity_label|mean|std",names(XY))]
+                ## Extract all 'mean' and 'std' measurements, along with 'Subjects' and 'Activities'
+                ## 'FreqMean' is considered as 'mean' measurement
+                XY_Extract=dataSet[,grepl("subject|activity_label|mean|std",names(dataSet))]
                   
 An independent tidy data set with the average of each variable for each activity and each subject is created using 'ddply':
 
-                  ## Use 'ddply' to estimate the average of each variable for each activity and each subject
-                  XY_Ext2=ddply(XY_Ext,.(subject,activity_label),colwise(mean))
+                 ## Use 'ddply' to estimate the average of each variable for each activity and each subject
+                tidyData=ddply(XY_Extract,.(subject,activity_label),colwise(mean))
               
 The tidy data is saved in a new file called 'tidyData.csv':              
 
                   ## Save the new tidy data set
-                  write.table(XY_Ext2,file = "tidyData.csv",row.names=F)
+                  write.table(tidyData,file = "tidyData.csv",row.names=F)
           }
